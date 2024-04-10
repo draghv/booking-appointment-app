@@ -1,0 +1,38 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if (prods.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let appointment of prods) { %>
+                        <tr>
+                            <td><%= appointment.fullName %></td>
+                            <td><%= appointment.email %></td>
+                            <td><%= appointment.phoneNumber %></td>
+                            <td>
+                                <a href="/appointment-edit/<%= appointment.id %>" class="btn">Edit</a>
+                                <a href="/appointment-details/<%= appointment.id %>" class="btn">Details</a>
+                                <a href="/appointment-delete/<%= appointment.id %>" class="btn">Delete</a>
+
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <h1>No Users Found!</h1>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,22 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+
+  <main>
+    <button><a href="/users">Back</a></button>
+    <% if (appointment) { %>
+      <div class="appointment-details">
+        <h1>Appointment Details</h1>
+        <p>Appointment ID: <%= appointment.id %></p>
+        <p>Full Name: <%= appointment.fullName %></p>
+        <p>Email: <%= appointment.email %></p>
+        <p>Phone: <%= appointment.phoneNumber %></p>
+      </div>
+    <% } else { %>
+      <h1>No Appointment Found!</h1>
+    <% } %>
+  </main>
+
+  <%- include('../includes/end.ejs') %>
